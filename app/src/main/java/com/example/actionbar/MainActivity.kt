@@ -1,5 +1,6 @@
 package com.example.actionbar
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ContextMenu
@@ -10,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -46,7 +48,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
             R.id.home -> Toast.makeText(this, "Go Home", Toast.LENGTH_SHORT).show()
-            R.id.settings -> Toast.makeText(this, "Configure your prefernces", Toast.LENGTH_SHORT).show()
+            R.id.settings -> {val i = Intent (this, SettingsActivity :: class.java)
+                startActivity(i)}
         }
         return super.onOptionsItemSelected(item)
     }
